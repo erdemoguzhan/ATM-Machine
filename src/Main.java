@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         List<Customer> customerList=new ArrayList<>();
-        System.out.println("commit test");
         Scanner scanner = new Scanner(System.in);
         int id=1;
         Customer customer;
