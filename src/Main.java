@@ -1,3 +1,5 @@
+import exception.CustomerNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -60,7 +62,12 @@ public class Main {
 
     }
     public static Customer customerSearchById(int id,List<Customer> customerList){
-        return customerList.stream().filter(x ->x.id==id).findFirst().get();
+        var s=customerList.stream().filter(x ->x.id==id).findFirst();
+        if(s.isPresent()){
+            return s.get();
+        }
+        throw new CustomerNotFoundException();
+
     }
 }
 
