@@ -6,6 +6,10 @@ public class Customer {
     int id;
     double balance;
 
+    public double getBalance() {
+        return balance;
+    }
+
     void depositMoney(double dmoney) {
         balance += dmoney;
     }

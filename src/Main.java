@@ -1,8 +1,6 @@
 import exception.CustomerNotFoundException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,6 +37,8 @@ public class Main {
                 i=scanner.nextInt();
                 customer=customerSearchById(i,customerList);
                 customer.showDetails();
+            case 7:
+                accountWithTheMostBalance(customerList);
 
         }
     }
@@ -53,6 +53,7 @@ public class Main {
         System.out.println("4- Show Account Details");
         System.out.println("5- Apply Credit");
         System.out.println("6- Delete My Account");
+        System.out.println("7- Display the acoount which has a most balance");
     }
     public static void interestCalculator(double balance){
         Scanner scanner=new Scanner(System.in);
@@ -67,7 +68,11 @@ public class Main {
             return s.get();
         }
         throw new CustomerNotFoundException();
-
+    }
+    public static void accountWithTheMostBalance(List<Customer> customerList){
+        Customer customerWithMostBalance=customerList.stream().max(Comparator.comparing(Customer::getBalance)).get();
+            System.out.println("Account with the most balance is: ID= "+customerWithMostBalance.id+"   NAME= "+customerWithMostBalance.name+"   SURNAME= "+
+                    customerWithMostBalance.surname+"   AGE= "+ customerWithMostBalance.age+"   BALANCE= "+ customerWithMostBalance.balance);
     }
 }
 
