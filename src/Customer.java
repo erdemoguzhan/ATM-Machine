@@ -6,10 +6,6 @@ public class Customer {
     int id;
     double balance;
 
-    public double getBalance() {
-        return balance;
-    }
-
     void depositMoney(double dmoney) {
         balance += dmoney;
     }
@@ -17,14 +13,7 @@ public class Customer {
     void withdrawMoney(double wmoney) {
         balance -= wmoney;
     }
-    void showDetails(){
-        System.out.println("\t\t\t-----Account Details------");
-        System.out.println("User ID: "+id);
-        System.out.println("Name: "+name);
-        System.out.println("Surname "+surname);
-        System.out.println("Age: "+age);
-        System.out.println("Balance: "+balance);
-    }
+
     Customer(String name,String surname,int age,int id){
         this.name=name;
         this.surname=surname;
